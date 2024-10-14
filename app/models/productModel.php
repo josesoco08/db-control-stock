@@ -1,31 +1,25 @@
 <?php
-
 require_once 'config/config.php';
+
 class ProductModel { 
     private $db;
+
     public function __construct() {
         $this->db = new PDO(
-                        "mysql:host=".MYSQL_HOST .
-                        ";dbname=".MYSQL_DB.";charset=utf8", 
-                        MYSQL_USER, MYSQL_PASS);
-                        $this->obtenerTablaProd();
+            "mysql:host=" . MYSQL_HOST . ";dbname=" . MYSQL_DB . ";charset=utf8", 
+            MYSQL_USER, MYSQL_PASS
+        );
     }
 
-    public function obtenerTablaProd() {
-        $query = $this->db->prepare("SELECT * FROM proveedor");
+    function getProducts() {
+        $query = $this->db->prepare("SELECT * FROM producto");
         $query->execute();
-        $query->fetchAll(PDO::FETCH_OBJ);
-   }
+        return $query->fetchAll(PDO::FETCH_OBJ); // Obtiene los productos como objetos
+    }
 
-   function getProducts(){
-    $query = $this->db->prepare("SELECT * FROM producto");
-    $query->execute();
-    // tasks es un arreglo de objeto
-    $products = $query->fetchAll(PDO::FETCH_OBJ);
-    return $products;
-
-   }
-
+    function getProductById($id) {
+        $query = $this->db->prepare("SELECT * FROM producto WHERE id_producto = ?");
+        $query->execute([$id]);
+        return $query->fetch(PDO::FETCH_OBJ); // Devuelve un solo producto
+    }
 }
-
-?>
