@@ -1,0 +1,17 @@
+<?php
+include 'Template/layout/header.phtml';
+?>
+    <form action="add" method="POST">
+        <h1>AGREGAR UN PRODUCTO</h1>
+         <input type="text" name="Nombre_producto" placeholder="Nombre del producto">
+         <input type="text" name="id_proveedor_fk" placeholder="ID Proovedor">
+         <input type="text" name="categoria" placeholder="Categoria">
+         <input type="text" name="cantidad" placeholder="Cantidad" >
+         <input type="text" name="talle" placeholder="Talle">
+         <input type="text" name="valor" placeholder="Valor" >
+         <input type="submit" value="Agregar producto">
+        </form>
+        
+<?php
+include 'Template/layout/footer.phtml';
+?>

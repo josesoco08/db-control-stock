@@ -1,24 +1,21 @@
+
 <?php
-class SupplierView {
+class SupplierView { 
+    // Mostrar los productos de un proveedor específico
     public function suppierDetailView($products) {
-        include 'app/views/template/header.php';
-        if ($products) {
-            echo '<ul>';
-            foreach ($products as $product) {
-
-                echo "<a href='router.php?action=home'>Volver</a>"; // Enlace para volver
-                echo '<li>Nombre: ' . htmlspecialchars($product->Nombre_producto) . '</li>';
-                echo '<li>Categoría: ' . htmlspecialchars($product->categoria) . '</li>';
-                echo '<li>Cantidad: ' . htmlspecialchars($product->cantidad) . '</li>';
-                echo '<li>Talle: ' . htmlspecialchars($product->talle) . '</li>';
-                echo '<li>Valor: ' . htmlspecialchars($product->valor) . '</li>';
-              
-            }
-            echo '</ul>';
-        } else {
-            echo '<p>No hay productos para este proveedor.</p>';
-        }
-        include 'app/views/template/footer.php';       
+        // Incluimos la plantilla de detalle del proveedor
+        include "Template/supplier/supplier_detail.phtml";
     }
-
+    function listViewSuppliers($suppliers){
+        include 'Template/suppliersABM/listSupplier.phtml';
+    }
+    function formSupplier(){
+        include 'Template/suppliersABM/formaddSupplier.phtml';
+    }
+    function addSupplierView() {
+        include 'Template/suppliersABM/formaddSupplier.phtml';
+     }
+     function editSupplierView($row){
+        include 'Template/suppliersABM/formEditSupplier.phtml';
+     }
 }

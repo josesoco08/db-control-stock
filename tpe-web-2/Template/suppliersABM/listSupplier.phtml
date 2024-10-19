@@ -1,0 +1,37 @@
+<?php
+include 'Template/layout/header.phtml';?>
+<h1>LISTADO DE PROVEEDORES</h1> 
+<li class="btn btn-secondary"> <a href='viewFormSupplier'> Agregar proveedor </a> </li>   
+<?php
+
+echo '<table class="table table-bordered">';
+ echo "<tr>
+         <th>ID</th>
+         <th>Nombre del Proveedor</th>
+         <th>Medio de Pago</th>
+         <th>Teléfono</th>
+         <th>Acciones</th>
+     </tr>";
+
+ // Verifica si hay proveedores
+ if (!empty($suppliers)) {
+     foreach ($suppliers as $supplier) {
+         echo "<tr>";
+         echo "<td>" . htmlspecialchars($supplier['id_proveedor']) . "</td>";
+         echo "<td>" . htmlspecialchars($supplier['Nombre_proveedor']) . "</td>";
+         echo "<td>" . htmlspecialchars($supplier['medio_de_pago']) . "</td>";
+         echo "<td>" . htmlspecialchars($supplier['telefono']) . "</td>";
+         echo "<td>
+                 <a class= btn btn-primary href='editSupplier/". $supplier['id_proveedor'] . "'>Editar</a> | 
+                 <a class= btn btn-primary href='deleteSupplier/" . $supplier['id_proveedor'] . "'>Eliminar</a>
+               </td>";
+         echo "</tr>";
+     }
+ } else {
+     echo "<tr><td colspan='5'>No hay proveedores.</td></tr>";
+ }
+
+ // Cierra la tabla
+ echo "</table>";
+ 
+ include 'Template/layout/footer.phtml';

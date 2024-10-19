@@ -1,31 +1,20 @@
+/* Contenedor principal para las tablas */
 .table-container {
     display: flex;
-    justify-content: flex-start;
-    padding: 10px;
-
+    gap: 30px;
+    justify-content: space-between;
+    margin: 30px auto;
+    max-width: 1200px;
+    padding: 20px;
 }
 
-.product-table {
-    width: 40%;
-    border-collapse: collapse; 
-    margin: 15px;
-}
-
-.product-table thead tr {
-    background-color: #56b8a4;
-    color: black;
-    text-align: center;
-    font-weight: bold;
-}
-
-.product-table th,
-.product-table td {
-    padding: 7px;
-    border: 1px solid #ddd;
-}
-
-.product-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+/* Sección individual para cada tabla */
+.table-section {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* barra de navegación */
